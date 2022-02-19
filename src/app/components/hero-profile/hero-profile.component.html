@@ -1,0 +1,27 @@
+<div *ngIf="hero" class="profile-container">
+    <a routerLink="/" class="back-profile">
+        <fa-icon [icon]="faChevronLeft"></fa-icon> back to all heros
+    </a>
+    <div class="profile-image-container">
+        <img src="https://i.imgur.com/iFLPWEF.png
+        " alt="hero image">
+    </div>
+    <div>
+        <label>Hero Name:</label>
+        <span>
+            {{hero.name}}
+        </span>
+    </div>
+    <div>
+        <label>Description</label>
+        <p>
+            {{hero.description}}
+        </p>
+    </div>
+    <div>
+        <label>Power</label>
+        <p>
+            {{hero.powers.join(", ")}}
+        </p>
+    </div>
+</div>

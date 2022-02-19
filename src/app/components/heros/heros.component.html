@@ -1,0 +1,97 @@
+<div class="heros-container">
+    <table class="heros-desktop-view" cellspacing="0">
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Hero Name</strong>
+                </td>
+                <td>
+                    <strong>Powers</strong>
+                </td>
+                <td>
+                    <strong>Rate</strong>
+                </td>
+            </tr>
+            <ng-container *ngIf="checkFilter; else showResult">
+                <tr *ngFor="let hero of heros">
+                    <td>
+                        <a routerLink="/profile/{{hero.id}}">{{hero.name}}</a>
+                    </td>
+                    <td>
+                        {{hero.powers.join(", ")}}
+                    </td>
+                    <td>
+                        <app-rating (onUpdateStars)="updateStars(hero, $event)" [rating]="hero.rating"></app-rating>
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-template #showResult>
+                <tr *ngFor="let hero of filterHeros">
+                    <td>
+                        <a routerLink="/profile/{{hero.id}}">{{hero.name}}</a>
+                    </td>
+                    <td>
+                        {{hero.powers.join(", ")}}
+                    </td>
+                    <td>
+                        <app-rating (onUpdateStars)="updateStars(hero, $event)" [rating]="hero.rating"></app-rating>
+                    </td>
+                </tr>
+            </ng-template>
+        </tbody>
+    </table>
+    <table class="heros-mobile-view" cellspacing="0">
+        <ng-container *ngIf="checkFilter; else showResult">
+            <ng-container *ngFor="let hero of heros">
+                <tr>
+                    <td>
+                        <strong>Hero Name</strong>
+                    </td>
+                    <td><a routerLink="/profile/{{hero.id}}">{{hero.name}}</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Powers</strong>
+                    </td>
+                    <td>{{hero.powers.join(", ")}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rate</strong>
+                    </td>
+                    <td>
+                        <app-rating (onUpdateStars)="updateStars(hero, $event)" [rating]="hero.rating"></app-rating>
+                    </td>
+                </tr>
+                <br>
+            </ng-container>
+        </ng-container>
+        <ng-template #showResult>
+            <ng-container *ngFor="let hero of filterHeros">
+                <tr>
+                    <td>
+                        <strong>Hero Name</strong>
+                    </td>
+                    <td><a routerLink="/profile/{{hero.id}}">{{hero.name}}</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Powers</strong>
+                    </td>
+                    <td>
+                        {{hero.powers.join(", ")}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rate</strong>
+                    </td>
+                    <td>
+                        <app-rating (onUpdateStars)="updateStars(hero, $event)" [rating]="hero.rating"></app-rating>
+                    </td>
+                </tr>
+                <br>
+            </ng-container>
+        </ng-template>
+    </table>
+</div>

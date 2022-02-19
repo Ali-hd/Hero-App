@@ -1,0 +1,9 @@
+<div>
+    <app-filter (currentFilter)="onFilter($event)"></app-filter>
+    <app-heros 
+    [searchTerm]="searchTerm" 
+    [sortByPower]="sortByPower"
+    [filterHeros]="filterHeros" 
+    [heros]="heros"
+    ></app-heros>
+</div>

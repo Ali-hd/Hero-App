@@ -1,0 +1,4 @@
+<ng-container *ngFor="let star of stars; let i=index">
+    <fa-icon (click)="updateStars($event, i)" *ngIf="star == 1" [icon]="faStar"></fa-icon>
+    <fa-icon (click)="updateStars($event, i)" *ngIf="star == 0" [icon]="emptyStar"></fa-icon>
+</ng-container>

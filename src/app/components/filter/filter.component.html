@@ -1,0 +1,33 @@
+<div class="filter-container">
+    <div class="filter-header">
+        <h3>Filters</h3>
+        <fa-icon (click)="openFilter()" [icon]="faSortAmountDown"></fa-icon>
+    </div>
+    <div 
+    *ngIf="filterOpen" [@grow]
+    >
+        <div class="filter-input-container">
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <input 
+            [(ngModel)]="searchValue" 
+            #searchRef
+            (change)="onChangeFilter()" 
+            type="text" 
+            name="search" 
+            id="search" 
+            placeholder="Search"
+            (keyup)="onChangeFilter()"
+            spellcheck="false"
+            >
+        </div>
+        <div class="filter-switch-container">
+            <span>
+                Sort By Power
+            </span>
+            <label class="filter-switch">
+                <input [(ngModel)]="sortByPower" (change)="onChangeFilter()" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
